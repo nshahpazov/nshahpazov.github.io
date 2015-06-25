@@ -227,7 +227,7 @@ LinkedList.prototype.insert = function (data) {
   this.last = node;
 }
 {% endhighlight %}
-For now we are only attaching nodes to the last insert
+For now we are only attaching nodes to the last inserted node in the list via the insert method.
 Lets see how it looks when we use it.
 <br />
 
@@ -235,7 +235,7 @@ Lets see how it looks when we use it.
 <a id="second-btn" class="btn">Add New One</a>
 <br />
 
-As you have probably noticed a general thing the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list.
+As you have probably noticed a general thing the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list and in it he can specify what exactly wants to do with the node.
 <br />
 
 {% highlight js %}
@@ -253,6 +253,8 @@ LinkedList.prototype.forEach = function (callback) {
 }
 {% endhighlight %}
 <br />
+What we just did was designing a function which takes a function as an argument. In computer sciences this function is called "high order function". You have probably used this many times, almost every library on the web take advantage of that approach.
+
 
 OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we wan't to remove an element we'll sure need to first find it.
 <br />
