@@ -241,7 +241,7 @@ LinkedList.prototype.forEach = function (callback) {
 {% endhighlight %}
 <br />
 
-OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we wan't to remove an element we'll sure need to first find it.
+OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we want to remove an element we'll sure need to first find it.
 <br />
 
 {% highlight js %}
@@ -263,7 +263,7 @@ This is our find method which makes a linear search passing a callback to every 
 {% highlight js %}
 LinkedList.prototype.remove = function (callback) {
   if (size === 0) {
-    throw Error('You can't remove from an empty list);
+    throw Error("You can't remove from an empty list");
     return;
   }
   var node = this.find(callback);
@@ -274,7 +274,7 @@ LinkedList.prototype.remove = function (callback) {
     return;
   }
 
-  // case of having element somehere in the middle
+  // case of having element somewhere in the middle
   var prev = node && node.prev;
   var next = node && node.next;
   if (next && prev) {
@@ -298,4 +298,4 @@ LinkedList.prototype.remove = function (callback) {
 {% endhighlight %}
 <br />
 
-I hope you you liked my first article and you've learnt something from it. As you probably already see this data structure is not very usable in the real world but is good enough to present some interesting ideas for representing data.
+I hope you liked my first article and you've learnt something from it. As you probably already see this data structure is not very usable in the real world but is good enough to present some interesting ideas for representing data.
