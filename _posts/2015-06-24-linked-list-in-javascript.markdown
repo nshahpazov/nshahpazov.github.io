@@ -164,7 +164,7 @@ By definition
 
 ##The Node.
 
-We want to represent a simple object consisting of data and a reference to another node.
+We want to represent a simple object consisting of data and a reference to another node. In our particular implementation I have decided to make it with to references, one to a previous node, and one to a next one.
 
 {% highlight javascript %}
 function Node(data) {
