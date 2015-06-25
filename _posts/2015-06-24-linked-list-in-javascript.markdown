@@ -151,9 +151,8 @@ This is my first article, so I wanted it to set the mood for my entire blog and 
 I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list.
 By definition
 <br>
-{% blockquote %}
-Linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links.
-{% endblockquote %}
+"Linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links.
+"
 
 <p><br /></p>
 
