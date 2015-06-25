@@ -28,7 +28,9 @@ date: 2015-06-24T12:46:11+03:00
 }
 
 </style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
 <script>
   function Canvas(id, width, height, radius, charge) {
     this.radius = radius;
@@ -147,7 +149,19 @@ This is my first article, so I wanted it to set the mood for my entire blog and 
 
 
 I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list.
-By definition "linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links". So lets start with the first thing.
+By definition
+<br>
+{% blockquote %}
+Linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links.
+{% endblockquote %}
+
+<p><br /></p>
+
+
+<img src="http://www.nczonline.net/blog/wp-content/uploads/2009/04/408px-Singly-linked-list.svg_.png" alt="Linked List Diagram" width="408" height="41">
+
+<br />
+ So lets start with the first thing.
 
 ##The Node.
 
@@ -195,7 +209,8 @@ function LinkedList() {
 At this point you are probably thinking. "Wait a minute! This thing starts to look a lot like an array! What is the point of all of this?!?"<br/>
 <p><br></p>
 
-I am showing you all this because there's a fundamental concept in the Linked List. And that is the reference. In an array we have cells with data where we can query whichever element of the array as long as we know it's index. Here we have a reference connected to a reference, connected to a reference and so on. It's an entirely different view on the matter of connection of objects.
+I am showing you all this because there's a fundamental concept in the Linked List. And that is the reference. In an array we have cells with data where we can query whichever element of the array as long as we know it's index. Here we have a reference connected to a reference, connected to a reference and so on. It's an entirely different view on the matter of connection of objects. And with it we can learn interesting concepts contained in the Linked List.
+<p><br /></p>
 
 If you still interested in what else we can do with this data structure lets see what we have to do to insert a new element in our list.
 <br />
@@ -271,7 +286,13 @@ LinkedList.prototype.remove = function (callback) {
   // case of a one element and we have it found
   if (node && size === 1) {
     this.last = this.first = null;
+    size = 0;
     return;
+  }
+
+  // case of not finding the node
+  if (node === null) {
+    return null;
   }
 
   // case of having element somehere in the middle
@@ -294,6 +315,7 @@ LinkedList.prototype.remove = function (callback) {
     this.first = node;
   }
   this.size--;
+  return node;
 };
 {% endhighlight %}
 <br />

@@ -63,6 +63,9 @@ GEM
       octopress-hooks (~> 2.0)
     octopress-hooks (2.6.1)
       jekyll (>= 2.0)
+    octopress-quote-tag (1.0.4)
+      jekyll
+      rubypants
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.11)
@@ -73,6 +76,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.2)
+    rubypants (0.2.0)
     safe_yaml (1.0.4)
     sass (3.4.15)
     timers (4.0.1)
@@ -91,6 +95,7 @@ DEPENDENCIES
   jekyll
   jekyll-sitemap
   octopress (~> 3.0.0.rc.12)
+  octopress-quote-tag
 
 BUNDLED WITH
    1.10.4
