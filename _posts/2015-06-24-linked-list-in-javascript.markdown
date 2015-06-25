@@ -194,7 +194,6 @@ Node.prototype.setPrev(prev) {
 
 ##Linked List
 
-The Node is the heart of the linked list data structure and as you can see we are only inserting at the end of the last inserted node.
 OK. Lets wrap what we have so far in a LinkedList class constructor.
 
 {% highlight js %}
@@ -228,7 +227,7 @@ LinkedList.prototype.insert = function (data) {
   this.last = node;
 }
 {% endhighlight %}
-
+For now we are only attaching nodes to the last insert
 Lets see how it looks when we use it.
 <br />
 
