@@ -256,7 +256,7 @@ LinkedList.prototype.forEach = function (callback) {
 What we just did was designing a function which takes a function as an argument. In computer sciences this function is called "high order function". You have probably used this many times, almost every library on the web take advantage of that approach.
 
 
-OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we wan't to remove an element we'll sure need to first find it.
+OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we want to remove an element we'll sure need to first find it.
 <br />
 
 {% highlight js %}
@@ -278,7 +278,7 @@ This is our find method which makes a linear search passing a callback to every 
 {% highlight js %}
 LinkedList.prototype.remove = function (callback) {
   if (size === 0) {
-    throw Error('You can't remove from an empty list);
+    throw Error("You can't remove from an empty list");
     return;
   }
   var node = this.find(callback);
@@ -320,4 +320,4 @@ LinkedList.prototype.remove = function (callback) {
 {% endhighlight %}
 <br />
 
-I hope you you liked my first article and you've learnt something from it. As you probably already see this data structure is not very usable in the real world but is good enough to present some interesting ideas for representing data.
+I hope you liked my first article and you've learnt something from it. As you probably already see this data structure is not very usable in the real world but is good enough to present some interesting ideas for representing data.
