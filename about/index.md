@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About the Author
+title: About Nikola
 tags: [about, programming, web technologies]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
