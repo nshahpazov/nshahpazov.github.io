@@ -179,7 +179,7 @@ function Node(data) {
 <a id="first-btn" class="btn">Add New One</a>
 <br>
 
-It can't get easier than that. A simple function constructor with data and a references to a next and previous node. But what we actually need is methods with which we can attach those references.
+It can't get easier than that. A simple function constructor with data and references to a next and previous node. But what we actually need is methods with which we can attach those references.
 
 {% highlight js %}
 // our reference setters
