@@ -187,7 +187,7 @@ Node.prototype.setNext = function (next) {
   this.next = next;
 };
 
-Node.prototype.setPrev function (prev) {
+Node.prototype.setPrev = function (prev) {
   this.prev = prev;
 };
 {% endhighlight %}
