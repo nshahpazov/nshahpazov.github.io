@@ -277,16 +277,16 @@ This is our find method which makes a linear search passing a callback to every 
 
 {% highlight js %}
 LinkedList.prototype.remove = function (callback) {
-  if (size === 0) {
+  if (this.size === 0) {
     throw Error("You can't remove from an empty list");
     return;
   }
   var node = this.find(callback);
 
   // case of a one element and we have it found
-  if (node && size === 1) {
+  if (node && this.size === 1) {
     this.last = this.first = null;
-    size = 0;
+    this.size = 0;
     return;
   }
 
