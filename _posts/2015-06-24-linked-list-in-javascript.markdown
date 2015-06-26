@@ -183,13 +183,13 @@ It can't get easier than that. A simple function constructor with data and a ref
 
 {% highlight js %}
 // our reference setters
-Node.prototype.setNext(next) {
+Node.prototype.setNext = function (next) {
   this.next = next;
-}
+};
 
-Node.prototype.setPrev(prev) {
+Node.prototype.setPrev function (prev) {
   this.prev = prev;
-}
+};
 {% endhighlight %}
 
 ##Linked List
@@ -225,7 +225,7 @@ LinkedList.prototype.insert = function (data) {
   node.setPrev(this.last);
   this.last.setNext(node);
   this.last = node;
-}
+};
 {% endhighlight %}
 For now we are only attaching nodes to the last inserted node in the list via the insert method.
 Lets see how it looks when we use it.
@@ -250,7 +250,7 @@ LinkedList.prototype.forEach = function (callback) {
     }
     current = current.next;
   }
-}
+};
 {% endhighlight %}
 <br />
 What we just did was designing a function which takes a function as an argument. In computer sciences this function is called "high order function". You have probably used this many times, almost every library on the web take advantage of that approach.
