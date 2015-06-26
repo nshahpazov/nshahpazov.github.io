@@ -2,8 +2,8 @@
 
 title:            Nikola's Blog
 locale:           en_US
-# url:              //nshahpazov.github.io
-url:              http://localhost:4000
+url:              //nshahpazov.github.io
+# url:              http://localhost:4000
 
 
 # Jekyll configuration
