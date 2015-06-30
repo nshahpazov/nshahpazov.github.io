@@ -20,7 +20,7 @@ gems:
 comments :
   provider : disqus
   disqus :
-    short_name : jekyllbootstrap
+    short_name : nikolasblog
   livefyre :
     site_id : 123
   intensedebate :
