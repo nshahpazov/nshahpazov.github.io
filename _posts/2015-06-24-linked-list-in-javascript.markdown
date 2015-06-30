@@ -18,7 +18,7 @@ date: 2015-06-24T12:46:11+03:00
 }
 
 .node {
-  stroke: #fff;
+  stroke: #000;
   stroke-width: 1.5px;
 }
 
@@ -235,7 +235,7 @@ Lets see how it looks when we use it.
 <a id="second-btn" class="btn">Add New One</a>
 <br />
 
-As you have probably noticed a general thing the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list and in it he can specify what exactly wants to do with the node.
+As you have probably noticed a general method the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list and in it he can specify what exactly wants to do with the node.
 <br />
 
 {% highlight js %}
