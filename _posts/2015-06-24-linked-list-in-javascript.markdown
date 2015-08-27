@@ -157,7 +157,7 @@ By definition
 <p><br /></p>
 
 
-<img src="http://www.nczonline.net/blog/wp-content/uploads/2009/04/408px-Singly-linked-list.svg_.png" alt="Linked List Diagram" width="408" height="41">
+<img src="http://java2novice.com/images/linked_list.png" alt="Linked List Diagram" width="408" height="41">
 
 <br />
  So lets start with the first thing.

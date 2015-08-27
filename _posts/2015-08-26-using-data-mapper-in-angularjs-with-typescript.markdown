@@ -46,10 +46,10 @@ OK, but since we are interested in the practical use, lets start with the contra
 {% highlight python %}
 interface IMapper {
   get<T>(params: {}): angular.IPromise<T>;
-  query<T>(params: {}): angular.IPromise<T[]>;
+  query<T>(): angular.IPromise<T[]>;
   save<T>(record: any): angular.IPromise<T>;
-  create<T>(any): angular.IPromise<T>;
-  remove(any): angular.IPromise<any>;
+  create<T>(): angular.IPromise<T>;
+  remove(record: any): angular.IPromise<any>;
 }
 
 {% endhighlight %}
@@ -57,14 +57,16 @@ interface IMapper {
 As you can see we define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return a promise which works with a particular domain object **T**ype.
 
 {% highlight js %}
-/// <reference path="../../../../typing/object-assign.d.ts" />
+/// <reference path="../typings/object-assign.d.ts" />
+/// <reference path="../typings/ramda.d.ts" />
+import * as R from 'ramda';
 import assign = require('object-assign');
-import IMapper from '../../common/interfaces/IMapper';
-import Client from '../models/Client';
+import IMapper from '../interfaces/IMapper';
+import User from '../models/User';
 
-let CLIENT_URI = 'http://awesomestore.com/api/client';
+let USER_URI = 'http://gotinhost.com/api/users/';
 
-class ClientMapper implements IMapper {
+class UserMapper implements IMapper {
   private httpService: angular.IHttpService;
 
   public static $inject = ['$http'];
@@ -73,37 +75,36 @@ class ClientMapper implements IMapper {
     this.httpService = $http;
   }
 
-  static construct($http: any): ClientMapper {
-    return new ClientMapper($http);
+  static construct($http: any): UserMapper {
+    return new UserMapper($http);
   }
 
-  get(params: {id: number}): angular.IPromise<Client> {
-    return this.httpService.get(ClientUris.CLIENT + params.id)
-      .then(res => new Client(res.data));
+  get(params: {id: number}): angular.IPromise<User> {
+    return this.httpService.get(USER_URI + params.id)
+      .then(res => new User(res.data));
   }
 
-  query(params: {}): angular.IPromise<Client[]> {
-    return this.httpService.get(ClientUris.CLIENT)
-      .then(R.compose(R.map(Client.construct), get('data'));
+  query(): angular.IPromise<User[]> {
+    return this.httpService.get(USER_URI)
+      .then(R.compose(R.map(User.construct), get('data')));
   }
 
-  save(client: Client): angular.IPromise<Client[]> {
-    let id = client.clientId;
-    return this.httpService.put(ClientUris.CLIENT + id, client)
-      .then(res => new Client(res.data));
+  save(user: User): angular.IPromise<User> {
+    let id = user.userId;
+    return this.httpService.put(USER_URI + id, user)
+      .then(res => new User(res.data));
   }
 
-  create(params: {}): angular.IPromise<Client> {
-    return this.httpService.post(ClientUris.CLIENT, client)
-      .then(res => new Client(res.data));
+  create(): angular.IPromise<User> {
+    return this.httpService.post(USER_URI, user)
+      .then(res => new User(res.data));
   }
 
-  remove(params: {}): angular.IPromise<boolean> {
-    return $http.delete(MED_URI + this.keyId)
+  remove(user: User): angular.IPromise<boolean> {
+    return $http.delete(USER_URI + user.id)
       .then(res => res.status === 200);
   }
 }
 
-export default ClientMapper;
-
 {% endhighlight %}
+
