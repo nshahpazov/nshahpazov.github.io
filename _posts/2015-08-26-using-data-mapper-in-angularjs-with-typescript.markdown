@@ -23,7 +23,7 @@ In this post I'm going to show you a way of separating your concerns when it com
 <p><br /></p>
 <p><br /></p>
 
-Data Mapper is an architectual pattern for separating the business logic of your domain model from the network communication logic.
+Data Mapper is an architectural pattern for separating the business logic of your domain model from the network communication logic.
 
 <!-- quote -->
 >A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in memory data representation (the domain layer).
@@ -38,7 +38,7 @@ OK, but since we are interested in the practical use, lets start with the contra
 
 {% highlight python %}
 interface IMapper {
-  get<T>(params: {}): angular.IPromise<T>;
+  get<T>(id: number): angular.IPromise<T>;
   query<T>(): angular.IPromise<T[]>;
   save<T>(record: any): angular.IPromise<T>;
   create<T>(): angular.IPromise<T>;
@@ -74,8 +74,8 @@ class UserMapper implements IMapper {
     return new UserMapper($http);
   }
 
-  get(params: {id: number}): angular.IPromise<User> {
-    return this.httpService.get(USER_URI + params.id)
+  get(id: number): angular.IPromise<User> {
+    return this.httpService.get(USER_URI + id)
       .then(res => new User(res.data));
   }
 
@@ -115,10 +115,6 @@ class User {
 
   constructor(data: {}) {
     assign(this, data);
-  }
-
-  static construct(data: {}) {
-    return new User(data);
   }
 
   purchase(item: IShopItem) {
