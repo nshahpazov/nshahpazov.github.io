@@ -81,7 +81,7 @@ class UserMapper implements IMapper {
 
   query(): angular.IPromise<User[]> {
     return this.httpService.get(USER_URI)
-      .then(R.compose(R.map(User.construct), get('data')));
+      .then(R.compose(R.map(data => new Client(data)), get('data')));
   }
 
   save(user: User): angular.IPromise<User> {
