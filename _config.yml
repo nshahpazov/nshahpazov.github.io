@@ -3,7 +3,7 @@
 title:            Nikola's Blog
 locale:           en_US
 url:              //nshahpazov.github.io
-# url:              http://localhost:4000
+#url:              http://localhost:4000
 
 
 # Jekyll configuration
@@ -34,7 +34,7 @@ comments :
 analytics :
   provider : google
   google :
-    tracking_id : 'UA-64788094-1'
+    tracking_id : UA-64788094-1
   getclicky :
   site_id :
 
@@ -57,7 +57,7 @@ owner:
   facebook: #username
   google:
     plus: #username
-    analytics:
+    analytics: UA-64788094-1
     verify:
     ad-client:
     ad-slot:
