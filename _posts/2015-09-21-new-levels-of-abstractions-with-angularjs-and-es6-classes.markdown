@@ -70,7 +70,7 @@ class Yacht extends Vehicle {
 let carolineYacht = new Yacht('Caroline', 38, 4, {type: 'diesel'});
 {% endhighlight %}
 
-The two aproaches look very similiar but in the same time but it's a lot more conventional and easier to spot inheritance and Object Oriented Principles in class oriented style of programming. So far so good, but how can we take advantage of inheritance in a real life example.
+The two aproaches look very similiar but in the same time it's a lot easier to spot inheritance and Object Oriented Principles in class oriented style of programming. So far so good, but how can we take advantage of inheritance in a real life example?
 
 # Automobile Parts Shop
 Often when we are dealing with single page applications we find ourselves repeating a lot of the logic and code. That's also the case with content management applications. Imagine we have a user interface with multiple buttons for record editting modals. Let's start with a automobile parts shop.
