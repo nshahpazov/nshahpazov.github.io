@@ -12,7 +12,7 @@ date: 2015-09-21T09:25:34+03:00
 
 In this blogpost I am going to show you how easy it is to construct reusable abstractions with AngualarJS and ES6 Classes. If you are with a more Object Oriented Language Programming background this article might seem simple and trivial but if you are coming from a Javascript background like me you might get some benefit out of it since in Javascript OOP is a bit harder to comprehend and see.
 
-# Class-based programming VS Prototype-based programming
+# Class-based VS Prototype-based programming
 As you know Javascript is a [prototype-based language](https://en.wikipedia.org/wiki/Prototype-based_programming) which differentiates a lot from traditional [Class-based programming](https://en.wikipedia.org/wiki/Class-based_programming). In prototype based programming we only have objects and those objects have their own prototypes from which they derive, as in class based programming we have common classes of objects which serve as a common abstraction for the objects we create.
 Inheritance is just the derivation of one class from another so that the common behaviour can be kept.
 Fortunately in ES6 we now have classes, so we can choose whatever way of object composition and inheritance we find suitable.
