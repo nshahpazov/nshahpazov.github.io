@@ -160,8 +160,7 @@ And we just use the class as a Controller function passed to the $modal opener.
 {% highlight js %}
 const AUTO_PART_MODAL_TEMPLATE = 'views/auto-parts/auto-part-modal-tpl.html';
 class ItemsTabCtrl {
-  constructor($scope, $modal) {
-    $scope.vm = this;
+  constructor($modal) {
     this.$modal = $modal;
   }
 
