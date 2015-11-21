@@ -274,5 +274,5 @@ class DiscountsTabCtrl extends CollectionRecordCtrl {
 {% endhighlight %}
 
 # The moral of the story
-Now that we are finished creating our base abstractions, we can just extend them wherever we have similiar functionality instead of just writing new controllers every time.
-This is indeed very useful when dealing with enterprise applications where the focus is on data management (creating, deleting and editing different data records). I hope you've enjoyed this article and it has come in handy to you.
+Now that we have finished creating our base abstractions, we can just extend them wherever we have similiar functionality instead of just writing new controllers every time.
+This is indeed very powerful and useful when dealing with enterprise applications where the focus is on data management (creating, deleting and editing different data records). I hope you've enjoyed this article and it has come in handy to you.
