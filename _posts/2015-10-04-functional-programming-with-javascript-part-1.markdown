@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Functional Programming With Javascript. <br/ >Part 1
+title: Functional Programming With Javascript. Part 1
 modified:
 categories:
 excerpt:
