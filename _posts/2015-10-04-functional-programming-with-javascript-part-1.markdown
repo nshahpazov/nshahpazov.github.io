@@ -178,4 +178,4 @@ This technique can come really handy when we are dealing with we are dealing wit
 
 # In the next episode
 
-In the next article we are going to look more into what closures are and pay more attention into more advanced concepts of functional programming.
+In the next article we are going to look into what closures are and pay attention into more advanced concepts of functional programming.
