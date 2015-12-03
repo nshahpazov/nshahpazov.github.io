@@ -159,7 +159,7 @@ fibonacci.owner = 'Leonardo of Pisa';
 fibonacci.foo = 'bar';
 {% endhighlight %}
 
-How is this helpful you may ask. Well, we can use it for a method called memoization (add link for this).
+How is this helpful you may ask. Well, we can use it for a method called memoization.
 Memoization is a method of storing already calculated results of a function and already returning those stored values when the user requests them. In our previous example that would be:
 {% highlight js %}
 function fibo(n) {
