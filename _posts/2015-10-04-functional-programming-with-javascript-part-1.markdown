@@ -174,3 +174,8 @@ fibo.memo = [];
 
 This technique can come really handy when we are dealing with we are dealing with calculations of high values since most of the calculated results in our recursive tree are already cached in the **memo** array.
 <img src="http://www.agillo.net/img/fibonacci61.png">
+
+
+# In the next episode
+
+In the next article we are going to look more into what closures are and pay more attention into more advanced concepts of functional programming.
