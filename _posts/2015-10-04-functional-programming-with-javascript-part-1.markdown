@@ -10,19 +10,19 @@ image:
 date: 2015-10-04T23:11:25+03:00
 ---
 
-In these series of articles we are going to go into deeply into the functional programming language concepts using the Javascript programming language.
+In this series of articles we are going to go deeply into functional programming language concepts using the Javascript programming language.
 
 
 #What is Functional Programming
 
-Functional Programming is not something new at all. We can track functional programming back to 1930s with the introduction of Lambda Calculus by Alonzo Church, far before there was any computer programming language at all. You can read more about lambda calculus here.
+Functional Programming is not something new. We can track functional programming back to the 1930s with the introduction of Lambda Calculus by Alonzo Church, far before there was any computer programming language at all. You can read more about lambda calculus here.
 
 ####So what exactly is functional programming?
 
-Functional Programming is a declarative style of programming which avoids changing state and mutation of data. In order for us to better understand the benefits of that kind of programming let us first introduce the pitfalls of stateful style of programming.
+Functional Programming is a declarative style of programming which avoids changing state and mutation of data. In order for us to better understand the benefits of that kind of programming let us first introduce the pitfalls of the stateful style of programming.
 
 # High Order Functions
-A great tool of the functional and programming at all is the high order function. A high order function is a function which returns or takes as a parameter another function.
+A great tool of functional programming is high order function. A high order function is a function which returns or takes as a parameter another function.
 
 {% highlight js %}
 function forEachProperty(obj, callback) {
@@ -57,7 +57,7 @@ function even(number) {
 let odd = complement(even);
 {% endhighlight %}
 
-As you can see high order functions can be really handy and you are probably using them all the time in your programming. Creating your own high order functions can be mind changing and really helps in your future programming. Lets review some high order functions we can use in our daily javascript programming.
+As you can see, high order functions can be really handy and you probably use them all the time in your programming. Creating your own high order functions can be mind changing and really helps for your future programming goals. Let's review some high order functions we can use in our daily javascript programming.
 
 
 #Map, Filter, Reduce
@@ -91,7 +91,7 @@ We also apply a second argument after the lambda function which is the initial v
 
 #Mutable State
 
-As you probably already know, in imperative (procedural) programming languages we have a way of storing state into variables and later reasigning new values into those variables.
+As you probably already know, in imperative (procedural) programming languages we have a way of storing state into variables and later reassigning new values into those variables.
 
 {% highlight js %}
   let car = {
@@ -106,7 +106,7 @@ As you probably already know, in imperative (procedural) programming languages w
   module.export = car;
 {% endhighlight%}
 
-As this is a really powerful feature of our programs it can introduce some bugs when multiple clients are requesting the same object.
+As this is a really powerful feature of our programs, it can introduce some bugs when multiple clients are requesting the same object.
 This can really lead to unexpected behavior when the same account is accessed by many clients in different modules.
 {% highlight js %}
   // in a separate module without knowing of the first decrease
@@ -117,10 +117,10 @@ This can really lead to unexpected behavior when the same account is accessed by
   > -20
 {% endhighlight %}
 
-In this case we make a modification without having the intel of other modifications on the same object. Imagine what happens if we have dozens of modules requiring the same object and changing it's state. This can really lead to bizzaire behaviour which will be hard to debug and patch up in the end. On help comes the pure function.
+In this case we make a modification without having the intel of other modifications on the same object. Imagine what happens if we have dozens of modules requiring the same object and changing it's state. This can really lead to bizzare behaviour which will be hard to debug and patch up in the end. To help comes the pure function.
 
 #Pure Function
-A pure function is a function where the return value is only determined by its input values, without observable side effects. In other words, if we pass the same parameters more than once, the function should always behave the same. For example all math functions are pure, they take an input and return an output ( sinus, cosinus, tangent, etc). Also a pure function doesn't make any modifications on a state. Lets try with some examples:
+A pure function is a function where the return value is only determined by its input values, without observable side effects. In other words, if we pass the same parameters more than once, the function should always behave the same. For example all math functions are pure, they take an input and return an output ( sin, cosin, tangent, etc). Also a pure function doesn't make any modifications on a state. Let's try with some examples:
 
 ##### Pure Function
 {% highlight js %}
@@ -145,7 +145,7 @@ function union(list1, list2) {
 {% endhighlight %}
 
 ###Why are pure functions good?
-Pure functions are really good tool in our coding instrumentarium since they are a lot less to cause bugs. They always act the same and they don't modify existing state.
+Pure functions are a really good tool in our coding instrumentarium since they are a lot less likely to cause bugs. They always act the same and they don't modify the existing state.
 
 # Functions as first-class objects
 You've probably heard that in javascript functions are first-class objects. But what does that mean?
@@ -172,10 +172,10 @@ function fibo(n) {
 fibo.memo = [];
 {% endhighlight %}
 
-This technique can come really handy when we are dealing with we are dealing with calculations of high values since most of the calculated results in our recursive tree are already cached in the **memo** array.
+This technique can come really handy when we are dealing with calculations of high values since most of the calculated results in our recursive tree are already cached in the **memo** array.
 <img src="http://www.agillo.net/img/fibonacci61.png">
 
 
 # In the next episode
 
-In the next article we are going to look into what closures are and pay attention into more advanced concepts of functional programming.
+In the next article we are going to look into what closures are and pay attention to more advanced concepts of functional programming.
