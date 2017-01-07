@@ -64,16 +64,12 @@ interface IMapper {
 We define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return an observable which works with a particular domain object **T**ype.
 
 {% highlight js %}
-import * as R from 'ramda';
 import IMapper from '../interfaces/IMapper';
 import User from '../models/User';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-
-const USER_URI = 'http://gotinhost.com/api/users';
-
-const get = R.curry((prop, obj) => obj[prop]);
+import { USER_URI } from '../constants/uris';
 
 @Injectable();
 class UserMapper implements IMapper {
