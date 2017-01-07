@@ -61,7 +61,7 @@ interface IMapper {
 
 {% endhighlight %}
 
-We define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return a promise which works with a particular domain object **T**ype.
+We define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return an observable which works with a particular domain object **T**ype.
 
 {% highlight js %}
 import * as R from 'ramda';
@@ -130,6 +130,6 @@ class User {
 }
 {% endhighlight %}
 
-###Conclusion
+### Conclusion
 
 Using the UserMapper and the User class, we have a very clear separation of concerns. The User domain object doesn't know anything about the network communication, all it cares about is it's own business logic.
