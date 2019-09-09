@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Starting taking notes in Probability and Statistics"
+title:  "Starting posting Probability and Statistics related topics"
 date:   2019-09-09 19:20:54 +0000
 categories: github jekyll
 ---
