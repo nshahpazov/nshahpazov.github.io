@@ -7,6 +7,6 @@ comments: true
 image:
   feature: sample-image-2.jpg
 ---
-Hi! My name is Nikola and I am a Statistics graduate and a former Software Engineer. Currently I am looking for a career change, finding a position as a Data Scientist so that I can mix my passion of mathematics and statistics, and my skills and experience as a programmer.
+My name is Nikola and I am a Statistics graduate and a former Software Engineer. Currently I am looking for a career change, finding a position as a Data Scientist so that I can mix my passion of mathematics and statistics, and my skills and experience as a programmer.
 
 I am interested in Machine Learning, Linear Models, Time Series Analysis, Bayesian Statistics and Algorithms. In my free time like reading and hiking.
