@@ -2,9 +2,11 @@
 layout: page
 title: About Nikola
 tags: [about, programming, web technologies]
-modified: 2014-08-08T20:53:07.573882-04:00
+modified: 2020-06-01T20:53:07.573882-04:00
 comments: true
 image:
   feature: sample-image-2.jpg
 ---
-Hi! My name is Nikola and I'm a Web Developer currently living in Sofia. I'm working as a freelance developer and also finalising my studies at Sofia University, Mathematics and Computer Sciences Faculty. I'm passionate about many things, but mostly about programming and computer sciences. I also love running, swimming and hiking.
+Hi! My name is Nikola and I am a Statistics graduate and a former Software Engineer. Currently I am looking for a career change, finding a position as a Data Scientist so that I can mix my passion of mathematics and statistics, and my skills and experience as a programmer.
+
+I am interested in Machine Learning, Linear Models, Time Series Analysis, Bayesian Statistics and Algorithms. In my free time like reading and hiking.
