@@ -7,6 +7,10 @@ comments: true
 image:
   feature: sample-image-2.jpg
 ---
-My name is Nikola and I am a Statistics graduate and a former Software Engineer. Currently I am looking for a career change, finding a position as a Data Scientist so that I can mix my passion of mathematics and statistics, and my skills and experience as a programmer.<br />
+I am Web Developer with a Bachelor of Computer Science and a soon expected Master in Statistics and Probability Theory.
 
-I am interested in Machine Learning, Linear Models, Time Series Analysis, Bayesian Statistics and Algorithms. In my free time I like reading and hiking.
+I have experience with Backend technologies like Java, Spring, Ruby, .NET, Python, etc., but also with most of the SPA javascript frameworks like Angular, Vue.js, React.js, Backbone.js.
+
+My mathematical interests lie in Linear Regression Analysis, Time Series Analysis, Statistical Learning, Statistical Inference, Stochastic Processes, Real and Functional Analysis, Measure Theory, Probability Theory and others.
+
+Outside of work and math studies, I'm interested in Psychoanalysis, Psychodrama Therapy, Object Relations Theory, Photography, literature, traveling and others. 
