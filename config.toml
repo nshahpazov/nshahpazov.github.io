@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "https://http://nshahpazov.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Nikola's Blog"
 theme = "ananke"
 [markup]
   defaultMarkdownHandler = "goldmark"
