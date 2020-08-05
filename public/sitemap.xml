@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2017-01-07T11:40:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/</loc>
+    <lastmod>2017-01-07T11:40:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/2017-01-07-using-data-mapper-in-angular-2/</loc>
+    <lastmod>2017-01-07T11:40:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/2015-10-04-functional-programming-with-javascript-part-1/</loc>
+    <lastmod>2015-10-04T23:11:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/2015-09-21-new-levels-of-abstractions-with-angularjs-and-es6-classes/</loc>
+    <lastmod>2015-09-21T09:25:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/2015-06-24-linked-list-in-javascript/</loc>
+    <lastmod>2015-06-24T12:46:11+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+</urlset>
