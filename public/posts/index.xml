@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on Nikola&#39;s Blog</title>
+    <link>https://http://nshahpazov.github.io/posts/</link>
+    <description>Recent content in Posts on Nikola&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jan 2017 11:40:00 +0300</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://http://nshahpazov.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using Data Mapper in Angular 2</title>
-      <link>http://example.org/posts/2017-01-07-using-data-mapper-in-angular-2/</link>
+      <link>https://http://nshahpazov.github.io/posts/2017-01-07-using-data-mapper-in-angular-2/</link>
       <pubDate>Sat, 07 Jan 2017 11:40:00 +0300</pubDate>
       
-      <guid>http://example.org/posts/2017-01-07-using-data-mapper-in-angular-2/</guid>
+      <guid>https://http://nshahpazov.github.io/posts/2017-01-07-using-data-mapper-in-angular-2/</guid>
       <description>(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;); ga(&#39;create&#39;, &#39;UA-64788094-2&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;);   In this post I&#39;m going to show you a way of separating your concerns when it comes to dealing with the network communication of your application. First, lets start with a simple diagram. 
 
 
@@ -25,28 +25,28 @@ Data Mapper is an architectural pattern for separating the business logic of you
     
     <item>
       <title>Functional Programming With Javascript. Part 1</title>
-      <link>http://example.org/posts/2015-10-04-functional-programming-with-javascript-part-1/</link>
+      <link>https://http://nshahpazov.github.io/posts/2015-10-04-functional-programming-with-javascript-part-1/</link>
       <pubDate>Sun, 04 Oct 2015 23:11:25 +0300</pubDate>
       
-      <guid>http://example.org/posts/2015-10-04-functional-programming-with-javascript-part-1/</guid>
+      <guid>https://http://nshahpazov.github.io/posts/2015-10-04-functional-programming-with-javascript-part-1/</guid>
       <description>In this series of articles we are going to go deeply into functional programming language concepts using the Javascript programming language.  What is Functional Programming  Functional Programming is not something new. We can track functional programming back to the 1930s with the introduction of Lambda Calculus by Alonzo Church, far before there was any computer programming language at all. You can read more about lambda calculus here. So what exactly is functional programming?</description>
     </item>
     
     <item>
       <title>New Levels of Abstractions With AngularJS and ES6 Classes</title>
-      <link>http://example.org/posts/2015-09-21-new-levels-of-abstractions-with-angularjs-and-es6-classes/</link>
+      <link>https://http://nshahpazov.github.io/posts/2015-09-21-new-levels-of-abstractions-with-angularjs-and-es6-classes/</link>
       <pubDate>Mon, 21 Sep 2015 09:25:34 +0300</pubDate>
       
-      <guid>http://example.org/posts/2015-09-21-new-levels-of-abstractions-with-angularjs-and-es6-classes/</guid>
+      <guid>https://http://nshahpazov.github.io/posts/2015-09-21-new-levels-of-abstractions-with-angularjs-and-es6-classes/</guid>
       <description>In this blogpost I am going to show you how easy it is to construct reusable abstractions with AngualarJS and ES6 Classes. If you are with a more Object Oriented Language Programming background this article might seem simple and trivial but if you are coming from a Javascript background like me you might get some benefit out of it since in Javascript OOP is a bit harder to comprehend and see.</description>
     </item>
     
     <item>
       <title>Linked List in Javascript</title>
-      <link>http://example.org/posts/2015-06-24-linked-list-in-javascript/</link>
+      <link>https://http://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/</link>
       <pubDate>Wed, 24 Jun 2015 12:46:11 +0300</pubDate>
       
-      <guid>http://example.org/posts/2015-06-24-linked-list-in-javascript/</guid>
+      <guid>https://http://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/</guid>
       <description>.pb7 { padding-bottom: 0rem !important; } .node { stroke: #000; stroke-width: 1.5px; } .link { stroke: #999; stroke-opacity: .6; }   (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;); ga(&#39;create&#39;, &#39;UA-64788094-2&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;);    function Canvas(id, width, height, radius, charge) { this.radius = radius; this.data = { nodes: [], links: [] }; this.size = 0; this.force = d3.layout.force() .charge(charge) // .gravity(0.003) .linkDistance(40) .size([width, height]); this.svg = d3.select(id).append(&#34;svg&#34;) .attr(&#34;width&#34;, width) .</description>
     </item>
     
