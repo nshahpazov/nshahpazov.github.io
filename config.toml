@@ -2,6 +2,8 @@ baseURL = "https://nshahpazov.github.io/"
 languageCode = "en-us"
 title = "Nikola's Blog"
 theme = "ananke"
+googleAnalytics = "UA-64788094-2"
+publishDir = "docs"
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.asciidocExt]

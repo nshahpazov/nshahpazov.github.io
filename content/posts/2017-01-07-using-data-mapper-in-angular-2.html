@@ -10,40 +10,24 @@ image:
 date: 2017-01-07T11:40:00+03:00
 ---
 
-<style></style>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-64788094-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<script></script>
-
-In this post I'm going to show you a way of separating your concerns when it comes to dealing with the network communication of your application. First, lets start with a simple diagram.
-<p><br/></p>
+<p>In this post I'm going to show you a way of separating your concerns when it comes to dealing with the network communication of your application. First, lets start with a simple diagram.</p>
+<br>
 
 
 <img src="http://eisuke.github.io/yapcasia2010/datamapper.png"
   alt="Data Mapper Diagram" width="960" height="200">
 
-<p><br /></p>
-<p><br /></p>
-
-Data Mapper is an architectural pattern for separating the business logic of your domain model from the network communication logic.
-
+<p>
+  Data Mapper is an architectural pattern for separating the business logic of your domain model from the network communication logic.
+</p>
 <!-- quote -->
->A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in memory data representation (the domain layer).
-
+<p>
+  A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in memory data representation (the domain layer).
+</p>
 You can read more about it <a href="http://martinfowler.com/eaaCatalog/dataMapper.html">here.</a>
 
-<p><br /></p>
-
 <br />
-OK, but since we are interested in the practical use, lets start with the contract.
+<p>OK, but since we are interested in the practical use, lets start with the contract.</p>
 
 
 {{< highlight TypeScript >}}
@@ -61,7 +45,9 @@ interface IMapper {
 
 {{< / highlight >}}
 
-We define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return an observable which works with a particular domain object <b>T</b>ype.
+<p>
+  We define a simple interface following the diagram and describing basic network communication operations done with a model. All operations return an observable which works with a particular domain object <b>T</b>ype.
+</p>
 
 {{< highlight TypeScript >}}
 import IMapper from '../interfaces/IMapper';
@@ -104,7 +90,9 @@ class UserMapper implements IMapper {
 }
 {{< / highlight >}}
 
-As you can see we are just implementing the interface according to our domain object needs. We are using ramda functional programming library for expressing ourselves in a more declarative way. An example domain object might be something like this:
+<p>
+  As you can see we are just implementing the interface according to our domain object needs. We are using ramda functional programming library for expressing ourselves in a more declarative way. An example domain object might be something like this:
+</p>
 
 {{< highlight TypeScript >}}
 class User {
@@ -126,6 +114,9 @@ class User {
 }
 {{< / highlight >}}
 
-### Conclusion
-
-Using the UserMapper and the User class, we have a very clear separation of concerns. The User domain object doesn't know anything about the network communication, all it cares about is it's own business logic.
+<h3>
+  Conclusion
+</h3>
+<p>
+  Using the UserMapper and the User class, we have a very clear separation of concerns. The User domain object doesn't know anything about the network communication, all it cares about is it's own business logic.
+</p>
