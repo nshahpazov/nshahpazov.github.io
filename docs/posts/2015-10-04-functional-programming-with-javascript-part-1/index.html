@@ -36,11 +36,11 @@
 <meta itemprop="description" content="In this series of articles we are going to go deeply into functional programming language concepts using the Javascript programming language.  What is Functional Programming  Functional Programming is not something new. We can track functional programming back to the 1930s with the introduction of Lambda Calculus by Alonzo Church, far before there was any computer programming language at all. You can read more about lambda calculus here. So what exactly is functional programming?">
 <meta itemprop="datePublished" content="2015-10-04T23:11:25+03:00" />
 <meta itemprop="dateModified" content="2015-10-04T23:11:25+03:00" />
-<meta itemprop="wordCount" content="1074">
+<meta itemprop="wordCount" content="1095">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Lambda,JavaScript,Functional Programming," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Functional Programming With Javascript. Part 1"/>
 <meta name="twitter:description" content="In this series of articles we are going to go deeply into functional programming language concepts using the Javascript programming language.  What is Functional Programming  Functional Programming is not something new. We can track functional programming back to the 1930s with the introduction of Lambda Calculus by Alonzo Church, far before there was any computer programming language at all. You can read more about lambda calculus here. So what exactly is functional programming?"/>
@@ -154,7 +154,7 @@ Functional Programming is not something new. We can track functional programming
 Functional Programming is a declarative style of programming which avoids changing state and mutation of data. In order for us to better understand the benefits of that kind of programming let us first introduce the pitfalls of the stateful style of programming.
 
 <h2>High Order Functions</h2>
-A great tool of functional programming is high order function. A high order function is a function which returns or takes as a parameter another function.
+In functional programming functions are considered first class citizens, i.e. they can be assigned to variables and returned from other functions. A great tool of functional programming is higher order function. A high order function is a function which returns or takes as a parameter another function.
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">forEachProperty</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">callback</span>) {
   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prop</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span>) {
@@ -243,7 +243,7 @@ This can really lead to unexpected behavior when the same account is accessed by
 
 In this case we make a modification without having the intel of other modifications on the same object. Imagine what happens if we have dozens of modules requiring the same object and changing it's state. This can really lead to bizzare behaviour which will be hard to debug and patch up in the end. To help comes the pure function.
 
-<h3>Pure Function</h3>
+<h2>Pure Function</h2>
 A pure function is a function where the return value is only determined by its input values, without observable side effects. In other words, if we pass the same parameters more than once, the function should always behave the same. For example all math functions are pure, they take an input and return an output ( sin, cosin, tangent, etc). Also a pure function doesn't make any modifications on a state. Let's try with some examples:
 
 <h3>Pure Function</h3>
@@ -305,6 +305,18 @@ Memoization is a method of storing already calculated results of a function and 
 
 <p>In the next article we are going to look into what closures are and pay attention to more advanced concepts of functional programming.
 </p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/lambda" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Lambda</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/javascript" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">JavaScript</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/functional-programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Functional Programming</a>
+   </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">

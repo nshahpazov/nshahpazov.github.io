@@ -20,5 +20,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Functional Programming</title>
+      <link>https://nshahpazov.github.io/tags/functional-programming/</link>
+      <pubDate>Sun, 04 Oct 2015 23:11:25 +0300</pubDate>
+      
+      <guid>https://nshahpazov.github.io/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://nshahpazov.github.io/tags/javascript/</link>
+      <pubDate>Sun, 04 Oct 2015 23:11:25 +0300</pubDate>
+      
+      <guid>https://nshahpazov.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>https://nshahpazov.github.io/tags/lambda/</link>
+      <pubDate>Sun, 04 Oct 2015 23:11:25 +0300</pubDate>
+      
+      <guid>https://nshahpazov.github.io/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
