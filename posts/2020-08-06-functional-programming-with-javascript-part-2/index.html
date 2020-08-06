@@ -36,7 +36,7 @@
 <meta itemprop="description" content="In Part I  of Functional Programming with Javascript we explained what Functional Programming is, i.e. a programming paradigm where programs are constructed by applying and composing functions. We explained the concepts of state, pure and impure functions, higher order functions. We left with the JavaScript functions being first class citizens and showed a Dynamic Programming technique called memoization.  In this article we are going to explain what a closure is and delve into more advanced functional programming constructs using the closure.">
 <meta itemprop="datePublished" content="2020-08-05T21:53:48+03:00" />
 <meta itemprop="dateModified" content="2020-08-05T21:53:48+03:00" />
-<meta itemprop="wordCount" content="1055">
+<meta itemprop="wordCount" content="1054">
 
 
 
@@ -224,7 +224,7 @@ How can we use our new pair function for creating a list? By creating a pair of 
 
 At this point this probably looks a lot like the linked list we described in my blog post on <a href="https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/">implementing LinkedList in JavaScript</a>. But can use add the same API functionality as in the standard array object in JavaScript? Just watch!
 <h3>forEach, map, filter and reduce</h3>
-<p>First we'll need a helper function which takes a function as an argument and applies to it to the rest of the arguments</p>
+<p>First we'll need a helper function which takes a function as an argument and applies it to the rest of the arguments</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">applyFunction</span>(<span style="color:#a6e22e">fn</span>, ...<span style="color:#a6e22e">args</span>) {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">fn</span>);
