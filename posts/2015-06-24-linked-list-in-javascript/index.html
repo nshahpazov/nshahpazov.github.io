@@ -150,16 +150,14 @@
     <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
 <p>This is my first article, so I wanted it to set the mood for my entire blog and best describe what I'm passionate about, Computer Sciences in a modern web environment and Mathematics in a Data Science context. I also wanted it to be an introduction article.
 </p>
-<br>
 
 <p>I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list.
 By definition
 </p>
-<br>
+
 <p>
 "Linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links.
 </p>
-<br/>
 
 <img src="http://java2novice.com/images/linked_list.png"
      alt="Linked List Diagram"
@@ -169,11 +167,7 @@ By definition
 <br />
  So lets start with the first thing.
 
-<br />
-<br />
-<h1>
-  The Node
-</h1>
+<h1>The Node</h1>
 
 <p>
   We want to represent a simple object consisting of data and a reference to another node. In our particular implementation I have decided to make it with to references, one to a previous node, and one to a next one.
@@ -190,9 +184,9 @@ By definition
 }
 </code></pre></div>
 
+<br>
 <div id="first-canvas"></div>
 <button id="first-btn" type="button" class="btn btn-success">Add New One</button>
-<br />
 <br />
 
 <p>
@@ -209,7 +203,6 @@ By definition
 }
 </code></pre></div>
 
-<br />
 <br />
 <h1>
   Linked List
@@ -228,12 +221,10 @@ By definition
 
 <p>At this point you are probably thinking. "Wait a minute! This thing starts to look a lot like an array! What is the point of all of this?!?"
 </p>
-<br>
 <p>I am showing you all this because there's a fundamental concept in the Linked List. And that is the reference. In an array we have cells with data where we can query whichever element of the array as long as we know it's index. Here we have a reference connected to a reference, connected to a reference and so on. It's an entirely different view on the matter of connection of objects. And with it we can learn interesting concepts contained in the Linked List.</p>
 <br>
 
 <p>If you still interested in what else we can do with this data structure lets see what we have to do to insert a new element in our list.</p>
-<br />
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// inside the LinkedList class
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">data</span>) {
@@ -255,7 +246,6 @@ Lets see how it looks when we use it.
 
 <div id="second-canvas" class="node-canvas"></div>
 <button id="second-btn" type="button" class="btn btn-success">Add New One</button>
-<br />
 <br />
 
 <p>As you have probably noticed a general method the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list and in it he can specify what exactly wants to do with the node.</p>
@@ -279,7 +269,6 @@ Lets see how it looks when we use it.
 </p>
 
 <p>OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we want to remove an element we'll sure need to first find it.</p>
-<br />
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">callback</span>) {
   <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
@@ -294,7 +283,6 @@ Lets see how it looks when we use it.
 </code></pre></div>
 
 <p>This is our find method which makes a linear search passing a callback to every element. If the callback at some point returns true it means we have met our requirements and we return that element.</p>
-<br />
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">callback</span>) {
   <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
