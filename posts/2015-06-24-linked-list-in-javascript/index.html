@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Linked List in Javascript | Nikola&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Linked List in Javascript" />
+<meta property="og:description" content="This is my first article, so I wanted it to set the mood for my entire blog and best describe what I&#39;m passionate about, Computer Sciences in a modern web environment and Mathematics in a Data Science context. I also wanted it to be an introduction article. I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/" />
+<meta property="article:published_time" content="2015-06-24T12:46:11+03:00" />
+<meta property="article:modified_time" content="2015-06-24T12:46:11+03:00" />
+<meta itemprop="name" content="Linked List in Javascript">
+<meta itemprop="description" content="This is my first article, so I wanted it to set the mood for my entire blog and best describe what I&#39;m passionate about, Computer Sciences in a modern web environment and Mathematics in a Data Science context. I also wanted it to be an introduction article. I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list.">
+<meta itemprop="datePublished" content="2015-06-24T12:46:11+03:00" />
+<meta itemprop="dateModified" content="2015-06-24T12:46:11+03:00" />
+<meta itemprop="wordCount" content="1226">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linked List in Javascript"/>
+<meta name="twitter:description" content="This is my first article, so I wanted it to set the mood for my entire blog and best describe what I&#39;m passionate about, Computer Sciences in a modern web environment and Mathematics in a Data Science context. I also wanted it to be an introduction article. I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikola&#39;s Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/&amp;text=Linked%20List%20in%20Javascript" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/&amp;title=Linked%20List%20in%20Javascript" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Linked List in Javascript</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikola Shahpazov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-06-24T12:46:11+03:00">June 24, 2015</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+<p>This is my first article, so I wanted it to set the mood for my entire blog and best describe what I'm passionate about, Computer Sciences in a modern web environment and Mathematics in a Data Science context. I also wanted it to be an introduction article.
+</p>
+<br>
+
+<p>I assume all of my readers know what an array is, so I decided to move to something very similar but in the same time describing an entirely different representation of a list.
+By definition
+</p>
+<br>
+<p>
+"Linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links.
+</p>
+<br/>
+
+<img src="http://java2novice.com/images/linked_list.png"
+     alt="Linked List Diagram"
+     width="408"
+     height="200">
+
+<br />
+ So lets start with the first thing.
+
+<br />
+<br />
+<h1>
+  The Node
+</h1>
+
+<p>
+  We want to represent a simple object consisting of data and a reference to another node. In our particular implementation I have decided to make it with to references, one to a previous node, and one to a next one.
+</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">data</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">ref</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  }
+}
+}
+</code></pre></div>
+
+<div id="first-canvas"></div>
+<button id="first-btn" type="button" class="btn btn-success">Add New One</button>
+<br />
+<br />
+
+<p>
+  It can't get easier than that. A simple function constructor with data and references to a next and previous node. But what we actually need is methods with which we can attach those references.
+</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// our reference setters inside the Node class
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">setNext</span>(<span style="color:#a6e22e">next</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">next</span>;
+}
+
+<span style="color:#a6e22e">setPrev</span>(<span style="color:#a6e22e">prev</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prev</span>;
+}
+</code></pre></div>
+
+<br />
+<br />
+<h1>
+  Linked List
+</h1>
+
+<p>OK. Lets wrap what we have so far in a LinkedList class constructor.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedList</span> {
+  <span style="color:#a6e22e">constructor</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  }
+}
+</code></pre></div>
+
+<p>At this point you are probably thinking. "Wait a minute! This thing starts to look a lot like an array! What is the point of all of this?!?"
+</p>
+<br>
+<p>I am showing you all this because there's a fundamental concept in the Linked List. And that is the reference. In an array we have cells with data where we can query whichever element of the array as long as we know it's index. Here we have a reference connected to a reference, connected to a reference and so on. It's an entirely different view on the matter of connection of objects. And with it we can learn interesting concepts contained in the Linked List.</p>
+<br>
+
+<p>If you still interested in what else we can do with this data structure lets see what we have to do to insert a new element in our list.</p>
+<br />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// inside the LinkedList class
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">data</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Node</span>(<span style="color:#a6e22e">data</span>);
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span><span style="color:#f92672">++</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>;
+    <span style="color:#66d9ef">return</span>;
+  }
+
+  <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">setPrev</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span>);
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span>.<span style="color:#a6e22e">setNext</span>(<span style="color:#a6e22e">node</span>);
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>;
+}
+</code></pre></div>
+For now we are only attaching nodes to the last inserted node in the list via the insert method.
+Lets see how it looks when we use it.
+<br />
+
+<div id="second-canvas" class="node-canvas"></div>
+<button id="second-btn" type="button" class="btn btn-success">Add New One</button>
+<br />
+<br />
+
+<p>As you have probably noticed a general method the array has and we don't is a way to iterate through the list. But how should we do this? Should we log the element, should we push it somewhere? Why don't we make a generic method which lets the user decide what he wants to do with the object, being that let him pass a callback function which will be executed for every element in the list and in it he can specify what exactly wants to do with the node.</p>
+<br />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">callback</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">current</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">doesContinue</span>;
+  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">current</span>) {
+    <span style="color:#a6e22e">doesContinue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">current</span>, <span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">index</span>);
+    <span style="color:#75715e">// lets us break out of the loop if the user returns false
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">doesContinue</span>) {
+      <span style="color:#66d9ef">break</span>;
+    }
+    <span style="color:#a6e22e">current</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">next</span>;
+  }
+}
+</code></pre></div>
+<br />
+<p>What we just did was designing a function which takes a function as an argument. In computer sciences this function is called "high order function". You have probably used this many times, almost every library on the web take advantage of that approach.
+</p>
+
+<p>OK, so far we are able to add and iterate through the elements of the list, but what if we need to remove a record. If we want to remove an element we'll sure need to first find it.</p>
+<br />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">callback</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">el</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">el</span>)) {
+      <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>;
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+    }
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+}
+</code></pre></div>
+
+<p>This is our find method which makes a linear search passing a callback to every element. If the callback at some point returns true it means we have met our requirements and we return that element.</p>
+<br />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">callback</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">throw</span> Error(<span style="color:#e6db74">&#34;You can&#39;t remove from an empty list&#34;</span>);
+    <span style="color:#66d9ef">return</span>;
+  }
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">callback</span>);
+
+  <span style="color:#75715e">// case of a one element and we have it found
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">return</span>;
+  }
+
+  <span style="color:#75715e">// case of not finding the node
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+  }
+
+  <span style="color:#75715e">// case of having element somehere in the middle
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">prev</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">next</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">next</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">prev</span>) {
+    <span style="color:#a6e22e">prev</span>.<span style="color:#a6e22e">setNext</span>(<span style="color:#a6e22e">next</span>);
+    <span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">setPrev</span>(<span style="color:#a6e22e">prev</span>);
+  }
+
+  <span style="color:#75715e">// case of having it last
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">next</span>) {
+    <span style="color:#a6e22e">prev</span>.<span style="color:#a6e22e">setNext</span>(<span style="color:#66d9ef">null</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prev</span>;
+  }
+
+  <span style="color:#75715e">// case of having it first
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">prev</span>) {
+    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">setPrev</span>(<span style="color:#66d9ef">null</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>;
+  }
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span><span style="color:#f92672">--</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>;
+}
+</code></pre></div>
+
+
+<p>I hope you liked my first article and you've learnt something from it. As you probably already see this data structure is not very usable in the real world but is good enough to present some interesting ideas for representing data.</p>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.pb7 {
+  padding-bottom: 0rem !important;
+}
+
+.node {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+<script>
+  function Canvas(id, width, height, radius, charge) {
+    this.radius = radius;
+
+    this.data = {
+      nodes: [],
+      links: []
+    };
+    this.size = 0;
+
+    this.force = d3.layout.force()
+      .charge(charge)
+      // .gravity(0.003)
+      .linkDistance(40)
+      .size([width, height]);
+
+    this.svg = d3.select(id).append("svg")
+        .attr("width", width)
+        .attr("height", height);
+  }
+
+  // static color for all
+  Canvas.color = d3.scale.category20();
+
+  Canvas.prototype.redraw = function () {
+    this.node = this.node.data(this.data.nodes);
+    this.node.enter().insert("circle")
+      .attr("class", "node")
+      .attr("r", this.radius)
+      .style("fill", function (d) {
+        return Canvas.color(d.group);
+      })
+      .call(this.force.drag);
+
+    this.link = this.link.data(this.data.links);
+    this.link.enter().insert("line", ".node")
+      .attr("class", "link");
+
+    return this.force.start();
+  }
+
+  Canvas.prototype.addNode = function (node) {
+    this.data.nodes.push(node);
+    this.size++;
+  };
+
+  Canvas.prototype.addEdge = function (edge) {
+    this.data.links.push(edge);
+  };
+
+  Canvas.prototype.start = function () {
+    let self = this;
+    this.force.nodes(this.data.nodes)
+      .links(this.data.links)
+      .start();
+
+    this.link = this.svg.selectAll(".link")
+    .data(this.data.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function (d) {
+        return Math.sqrt(d.value);
+      });
+
+      this.node = this.svg.selectAll(".node")
+        .data(this.data.nodes)
+        .enter().append("circle")
+          .attr("class", "node")
+          .attr("r", this.radius)
+          .style("fill", function (d) { return Canvas.color(d.group); })
+          .call(this.force.drag);
+
+      // node.append("title")
+      //     .text(function (d) { return d.name; });
+
+      this.force.on("tick", function() {
+        self.link.attr("x1", function (d) { return d.source.x; })
+            .attr("y1", function (d) { return d.source.y; })
+            .attr("x2", function (d) { return d.target.x; })
+            .attr("y2", function (d) { return d.target.y; });
+
+        self.node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+      });
+  };
+
+  document.addEventListener("DOMContentLoaded", function (event) {
+    let canvas1 = new Canvas('#first-canvas', 678, 200, 10, -200);
+    canvas1.data.nodes.push({name: 'Lorem', group: 1});
+    canvas1.start();
+
+    // ** Update data section (Called from the onclick)
+    document.querySelector("#first-btn")
+      .addEventListener('click', function (ev) {
+        let group = parseInt(Math.random() * 356);
+        canvas1.addNode({name: 'Lorem Ipsum', group});
+        canvas1.redraw();
+      });
+
+    // second canvas and button
+    let secondCanvas = new Canvas("#second-canvas", 678, 300, 15, -200);
+    secondCanvas.data.nodes.push({name: 'sss', group: 1});
+    secondCanvas.start();
+
+    document.querySelector('#second-btn').addEventListener('click', function (event) {
+      let group = parseInt(Math.random() * 356);
+      secondCanvas.addNode({name: "ala", group: group});
+      secondCanvas.addEdge({source: secondCanvas.size - 1, target: secondCanvas.size});
+      secondCanvas.redraw();
+    });
+  });
+</script><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nshahpazov.github.io/" >
+    &copy;  Nikola's Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
