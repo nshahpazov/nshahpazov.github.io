@@ -1,0 +1,199 @@
+---
+title: Functional Programming With Javascript. Part 2
+date: 2020-08-05T21:53:48+03:00
+---
+<p>
+  In
+  <a href="https://nshahpazov.github.io/posts/2015-10-04-functional-programming-with-javascript-part-1/">
+    Part I
+  </a> of Functional Programming with Javascript we explained what Functional Programming is, i.e. a programming paradigm where programs are constructed by applying and composing functions. We explained the concepts of state, pure and impure functions, higher order functions. We left with the JavaScript functions being first class citizens and showed a Dynamic Programming technique called memoization.
+</p>
+
+<p>
+  In this article we are going to explain what a closure is and delve into more advanced functional programming constructs using the closure.
+</p>
+
+<h2>Closure</h2>
+<p>
+  In JavaScript every function sets a lexical environment, mapping all the declared variables to their corresponding values.
+</p>
+<img src="https://lh3.googleusercontent.com/proxy/TI0-p9cOvKcdmsub59kFvMzBbaiHbSuorlifc3wmShPqyL-lR8VuZM9mlOGQzqoEBTYpx0cyFHacf48YUVhQji1kEg_plJXfcEMoPIghXOHaueC3nv9cXEkGudZun7pZFkp45M768UzwIYcoz40" alt="" width=400 height=400>
+<p>In addition to that, the function's environment has pointer to the parent environment.</p>
+
+{{< highlight JavaScript >}}
+function outer() {
+  let x = 'Hello '; // this is set in the outer function environment
+  return function inner() {
+    let y = 'World'; // this is set in the inner function context which has access to the outer context
+    return x + y;
+  };
+}
+
+> innerFunction = outer();
+> innerFunction(); // returns 'Hello World' even though there's no x variable inside the inner function
+{{< / highlight >}}
+
+<p>Closures are just combinations of a function and accessing that function's outer context.</p>
+
+<h2>Pair, head and tail</h2>
+<p>So how can we use that? Closures are so powerful, that in languages like LISP the lexical environment can be used for creation of list collections. We can use functions for representing data, not just operations. How can we do that? By first creating a pair of elements. Lets call the function representing a pair of data elements <b>pair</b></p>
+
+{{< highlight JavaScript >}}
+function pair(a, b) {
+  return () => [a, b];
+}
+{{< / highlight >}}
+
+<p>We can also create a function which takes a pair and returns first or second element of the pair, their sum or their difference.</p>
+{{< highlight JavaScript >}}
+function firstOfPair(a, b) {
+  return () => a;
+}
+function secondOfPair(a, b) {
+  return () => b;
+}
+
+function sumOfPair(a, b) {
+  return () => a + b;
+}
+
+function differenceOfPair(a, b) {
+  return () => a - b;
+}
+{{< / highlight >}}
+
+<p>But aren't we starting to write too much code for every operation there is with pairs? Why not just use higher-order functions described in the previous <a href="https://nshahpazov.github.io/posts/2015-10-04-functional-programming-with-javascript-part-1/"> blog post</a> for giving the access to the data to the user? We can do that by allowing the user of the function to pass another function as an argument. That function will allow for general usage of the pair.</p>
+{{< highlight JavaScript >}}
+function pair(a, b) {
+  return executor => executor(a, b);
+}
+> const closure = pair(5, 6);
+> closure((a, b) => a + b);
+> closure((a, b) => a - b);
+{{< / highlight >}}
+<p>Perfect! We are encapsulating data in a closure and in the same time allowing for general manipulation of the data in the closure by passing different callback functions for the necessary manipulation. Let's create some accessors for the stored in the closure data.</p>
+
+{{< highlight JavaScript >}}
+function head(p) {
+  return p((first, second) => first);
+}
+
+function tail(p) {
+  return p((first, second) => second);
+}
+{{< / highlight >}}
+
+How can we use our new pair function for creating a list? By creating a pair of pair of pair :)
+
+{{< highlight JavaScript >}}
+  const list = pair(1, pair(2, pair(3, pair(4, 5))));
+  head(list);
+  head(tail(list));
+{{< / highlight >}}
+
+At this point this probably looks a lot like the linked list we described in my blog post on <a href="https://nshahpazov.github.io/posts/2015-06-24-linked-list-in-javascript/">implementing LinkedList in JavaScript</a>. But can use add the same API functionality as in the standard array object in JavaScript? Just watch!
+<h3>forEach, map, filter and reduce</h3>
+<p>First we'll need a helper function which takes a function as an argument and applies it to the rest of the arguments</p>
+
+{{< highlight JavaScript >}}
+function applyFunction(fn, ...args) {
+  return args.forEach(fn);
+}
+{{< / highlight >}}
+
+<p>Another thing we'll need is a predicator function which checks whether a function representing data is the actual pair we need for the operations.</p>
+{{< highlight JavaScript >}}
+function isPair(p) {
+  return typeof p === 'function' && typeof tail(p) !== 'function' &&
+    typeof tail(p) !== 'undefined';
+}
+{{< / highlight >}}
+
+<p>Let's get to the all known forEach function, but implemented for our new closurely constructed list.</p>
+
+{{< highlight JavaScript >}}
+function forEach(c, callback) {
+  // if it's a pair and there's more pairs in the tail
+  if (typeof c === 'function' && typeof (tail(c)) === 'function') {
+    callback(head(c)); // call the callback on the first element
+    // recursively call forEach for the rest of the nested closures
+    forEach(tail(c), callback);
+  } else if (isPair(c)) {
+    // if it's just a pair, call the callback on both head and tail of the pair
+    applyFunction(callback, head(c), tail(c));
+  } else {
+    callback(head(c));
+  }
+}
+{{< / highlight >}}
+
+<p>Here's an example usage of <b>forEach</b></p>
+{{< highlight JavaScript >}}
+  const list = pair(1, pair(2, pair(3, pair(4, pair(5, 6)))));
+  forEach(list, el => console.log(el));
+{{< / highlight >}}
+<p>Just like our native <b>forEach</b>, right? Let's do the rest of the commonly known js array functions.</p>
+
+<h4>Mapping elements of a list</h4>
+{{< highlight JavaScript >}}
+function map(c, fn) {
+  if (typeof c === 'function' && typeof tail(c) === 'function') {
+    // if the tail is still a list of closures return new pair with
+    // head - the applied function to the first element, and
+    // recursively pass the map to the tail
+    return pair(fn(head(c)), map(tail(c), fn));
+  } else if (isPair(c)) {
+    // bottom of the recursion, just a pair of the mapped elements
+    return pair(fn(head(c)), fn(tail(c)));
+  }
+}
+{{< / highlight >}}
+
+<h4>Filtering the list</h4>
+{{< highlight JavaScript >}}
+function filter(c, pred) {
+  if (typeof c !== 'function') {
+    return undefined;
+  }
+  if (isPair(c)) {
+    // bottom of the recursion
+    const args = [head(c), tail(c)].filter(pred);
+    // return the last elements for which the predicator function is true
+    return args.length > 0 ? pair.apply(null, args) : undefined;
+  }
+  if (pred(head(c))) {
+    // if the predicator is true on the head just add in the result with
+    // recursively called filter on the tail
+    return pair(head(c), filter(tail(c), pred));
+  }
+  return filter(tail(c), pred);
+}
+{{< / highlight >}}
+
+<h4>Reduce or also known as Accumulate</h4>
+{{< highlight JavaScript >}}
+function reduce(c, fn, init) {
+  // bottom of the recusion trip
+  if (typeof c !== 'function') {
+    return init;
+  } else if (isPair(c)) {
+    return head(c) + tail(c) + init;
+  }
+  // recursivelly call reduce on the tail of the list
+  return reduce(tail(c), fn, fn(init, head(c)));
+}
+{{< / highlight >}}
+
+<h4>Example usage of those functions</h4>
+{{< highlight JavaScript >}}
+> const filtered = filter(list, el => a % 2);
+> const squared = map(filtered, el => el*el);
+> const sumOfSquaredEvens = reduce(squared, (a, b) => a + b, 0);
+{{< / highlight >}}
+
+<p>I hope you understood and enjoyed this blog post.</p>
+<style>
+  .pb7 {
+    padding-bottom: 0rem !important;
+  }
+</style>
