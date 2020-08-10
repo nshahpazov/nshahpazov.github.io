@@ -36,7 +36,7 @@
 <meta itemprop="description" content="Introduction  In this blog post we are going to look at how we can generate a random sample out of a random variable, and then look at the maximum likelihood method for estimating the parameters of distribution of that random variable. Generating a random sample Let&#39;s assume we have a sample $x_1,...,x_n$ out of a sequence of i.i.d. random variables $X_1,...,X_n \sim X$, where X for example has Poisson distribution  with parameter $\theta$.">
 <meta itemprop="datePublished" content="2020-08-08T11:41:53+03:00" />
 <meta itemprop="dateModified" content="2020-08-08T11:41:53+03:00" />
-<meta itemprop="wordCount" content="905">
+<meta itemprop="wordCount" content="904">
 
 
 
@@ -293,7 +293,7 @@ We can use the
   <span style="color:#66d9ef">return</span> round(middle, precision)</code></pre></div>
 
 <p>
-  Let's dissect our bisect method :) . We simply take two points and include the one in the middle
+  Let's dissect our bisect method :) . We simply take two points, include the one in the middle
    (their average) and repeat the process for the points for which the likelihood is greatest.
 </p>
 
@@ -304,7 +304,9 @@ As you can see, our numerical method for estimating the parameter $\theta$ gives
 approximation for the real value.
 </p></p>
 
-<p>I hope you enjoyed this blog post and learned something new.</p>
+<p>
+  I hope you enjoyed this blog post and learned something new.
+</p>
 
 <script type="text/javascript"
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
