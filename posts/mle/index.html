@@ -36,7 +36,7 @@
 <meta itemprop="description" content="Introduction  In this blog post we are going to look at how we can generate a random sample out of a random variable, and then look at the maximum likelihood method for estimating the parameters of distribution of that random variable. Generating a random sample Let&#39;s assume we have a sample $x_1,...,x_n$ out of a sequence of i.i.d. random variables $X_1,...,X_n \sim X$, where X for example has Poisson distribution  with parameter $\theta$.">
 <meta itemprop="datePublished" content="2020-08-08T11:41:53+03:00" />
 <meta itemprop="dateModified" content="2020-08-08T11:41:53+03:00" />
-<meta itemprop="wordCount" content="904">
+<meta itemprop="wordCount" content="896">
 
 
 
@@ -194,13 +194,13 @@ $$
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inverse_poisson_outcome</span>(theta):
   unif <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
-  prob <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>theta)
-  mass <span style="color:#f92672">=</span> p
+  probability <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>theta)
+  mass <span style="color:#f92672">=</span> probability
   k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
   <span style="color:#66d9ef">while</span> mass <span style="color:#f92672">&lt;</span> unif:
     k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    prob <span style="color:#f92672">*=</span> theta <span style="color:#f92672">/</span> k <span style="color:#75715e"># since p(k) = p(k-1) * (theta / k)</span>
-    mass <span style="color:#f92672">+=</span> prob
+    probability <span style="color:#f92672">*=</span> theta <span style="color:#f92672">/</span> k <span style="color:#75715e"># since $a^2$</span>
+    mass <span style="color:#f92672">+=</span> probability
   <span style="color:#66d9ef">return</span> k</code></pre></div>
 
 <p>And a function which generates an entire sample out of a Poisson random variable</p>
@@ -267,9 +267,9 @@ plt<span style="color:#f92672">.</span>show()</code></pre></div>
   setting that derivative to 0, we get
 </p>
 $$
-  \frac{\partial{L(\theta; \textbf{x})}}{\partial{\theta}} = \frac{n\bar{x}}{\theta} - n\theta = 0
+  \frac{\partial{L(\theta; \textbf{x})}}{\partial{\theta}} = \frac{n\bar{x}}{\theta} - n = 0
 $$
-<p>Which not suprisingly gives us</p>
+<p>Which gives us</p>
 $$
   \hat{\theta} = \bar{x}
 $$
