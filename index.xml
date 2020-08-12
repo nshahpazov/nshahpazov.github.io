@@ -17,7 +17,7 @@
       <pubDate>Sat, 08 Aug 2020 11:41:53 +0300</pubDate>
       
       <guid>https://nshahpazov.github.io/posts/mle/</guid>
-      <description>Introduction  In this blog post we are going to look at how we can generate a random sample out of a random variable, and then look at the maximum likelihood method for estimating the parameters of distribution of that random variable. Generating a random sample Let&#39;s assume we have a sample $x_1,...,x_n$ out of a sequence of i.i.d. random variables $X_1,...,X_n \sim X$, where X for example has Poisson distribution  with parameter $\theta$.</description>
+      <description>--  Introduction  In this blog post we are going to look at how we can generate a random sample out of a random variable, and then look at the maximum likelihood method for estimating the parameters of distribution of that random variable. Generating a random sample Let&#39;s assume we have a sample $x_1,...,x_n$ out of a sequence of i.i.d. random variables $X_1,...,X_n \sim X$, where X for example has Poisson distribution  with parameter $\theta$.</description>
     </item>
     
     <item>
