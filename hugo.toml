@@ -1,0 +1,29 @@
+baseURL = 'https://nshahpazov.github.io/'
+languageCode = 'en-us'
+title = "Nikola Shahpazov"
+theme = 'ananke'
+sectionPagesMenu = 'main'
+[services.disqus]
+  shortname = 'nshahpazov'
+[params]
+  commentoEnable = true
+
+# background_color_class = "bg-red"
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+  [languages.bg]
+    languageName = "Български"
+    weight = 2
+    [languages.bg.menu]
+      [[languages.bg.menu.main]]
+        identifier = "socials"
+        name = "Лични неща"
+        url = "/bg/socials/"
+        weight = 1
+      [[languages.bg.menu.main]]
+        identifier = "socials2"
+        name = "Alabala"
+        url = "/bg/socials/"
+        weight = 1

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <h1>{{ .Title }}</h1>
+    </header>
+    <main>
+        {{ .Content }}
+    </main>
+    <footer>
+        <p>© 2023 Your Site Name</p>
+    </footer>
+</body>
+</html>
