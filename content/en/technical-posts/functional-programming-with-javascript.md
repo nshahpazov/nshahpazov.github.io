@@ -3,6 +3,7 @@ title = 'Functional Programming With Javascript'
 date = 2020-08-18T12:19:57+03:00
 draft = false
 featured_image = '/images/bg.png'
+type = "post"
 +++
 
     
