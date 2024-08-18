@@ -16,4 +16,3 @@ sectionPagesMenu = 'main'
   [languages.bg]
     weight = 2
     contentDir = "content/bg"
-    contentDirFallback = "content/en"
