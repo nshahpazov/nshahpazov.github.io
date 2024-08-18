@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Nikola Shahpazov - Personal Blog</title>
+    <link>https://nshahpazov.github.io/posts/</link>
+    <description>Recent content in Posts on Nikola Shahpazov - Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Aug 2024 11:20:15 +0300</lastBuildDate>
+    <atom:link href="https://nshahpazov.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>https://nshahpazov.github.io/posts/my-first-post/</link>
+      <pubDate>Sun, 18 Aug 2024 11:20:15 +0300</pubDate>
+      <guid>https://nshahpazov.github.io/posts/my-first-post/</guid>
+      <description>Introduction This is bold text, and this is emphasized text.&#xA;My first blog post.</description>
+    </item>
+  </channel>
+</rss>
