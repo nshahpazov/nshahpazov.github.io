@@ -1,2 +1,2 @@
-# nshahpazov-blog
-Personal Blog
+Nikola Shahpazov's personal page
+# Blog

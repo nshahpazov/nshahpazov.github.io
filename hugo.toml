@@ -1,4 +1,4 @@
 baseURL = 'https://nshahpazov.github.io/'
 languageCode = 'en-us'
-title = 'Nikola Shahpazov - Personal Blog'
+title = 'Nikola Shahpazov'
 theme = 'ananke'
