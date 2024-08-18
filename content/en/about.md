@@ -4,4 +4,4 @@ title = 'About me'
 featured_image = '/images/pg.jpeg'
 +++
 
-Здравейте, казвам се Никола.
+Hello there! My name is Nikola.
