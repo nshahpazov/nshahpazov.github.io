@@ -4,7 +4,7 @@ tags: []
 featured_image: ""
 description: ""
 type: "post"
-featured_image: "images/tomorrow.jpg"
+featured_image: "/images/tomorrow.jpg"
 title: " "
 ---
 
