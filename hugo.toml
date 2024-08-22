@@ -7,6 +7,8 @@ sectionPagesMenu = 'main'
   shortname = 'nshahpazov'
 [params]
   commentoEnable = true
+  customCSS = ["css/custom.css"]
+
 
 # background_color_class = "bg-red"
 [languages]
