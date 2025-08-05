@@ -1,7 +1,6 @@
 ---
 date: 2025-07-26T22:17:07+03:00
 tags: []
-featured_image: ""
 description: ""
 type: "post"
 draft: false
